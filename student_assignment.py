@@ -62,7 +62,7 @@ def hw02_2(q2_pdf):
 
     # 8. 用 RecursiveCharacterTextSplitter 進一步拆分
     splitter = RecursiveCharacterTextSplitter(
-        chunk_size=1000,  # 增大 chunk_size 減少過度拆分
+        chunk_size=2000,  # 增大 chunk_size 減少過度拆分
         chunk_overlap=0   # 避免 chunk 重疊造成過多 chunk
     )
 
@@ -75,8 +75,8 @@ def hw02_2(q2_pdf):
         chunks.extend(splitter.split_text(section))
 
     # 10. 印出所有 chunks 來檢查
-    # for i, chunk in enumerate(chunks):
-    #     print(f"Chunk {i+1}:\n{chunk}\n")
+    for i, chunk in enumerate(chunks):
+        print(f"Chunk {i+1}:\n{chunk}\n")
 
     print(f"Successfully split into {len(chunks)} chunks.")
 
