@@ -47,7 +47,7 @@ def hw02_2(q2_pdf):
     pre_chapter_pattern = r"^(.*?)(第\s+[一二三四五六七八九十百零]+\s*章)"
     pre_chapter_match = re.match(pre_chapter_pattern, full_text, re.DOTALL)
 
-    # 4. 提取第一章之前的部分作為前言
+    # 4. 提取第一章之前的部分作為前言，如果有前言才進行處理
     pre_chapter_text = pre_chapter_match.group(1).strip() if pre_chapter_match else ""
     full_text_without_intro = full_text[len(pre_chapter_text):]  # 剩餘的部分，不包括前言
 
@@ -85,5 +85,5 @@ def hw02_2(q2_pdf):
 if __name__ == '__main__':
     result1 = hw02_1(q1_pdf)
     result2 = hw02_2(q2_pdf)
-    print(result1)
+    # print(result1)
     print(result2) # 111
